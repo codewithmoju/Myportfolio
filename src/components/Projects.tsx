@@ -1,28 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-
-const highlights = [
-  {
-    title: "Dynamic animation, motion design",
-    color: "bg-orange-500 text-white",
-  },
-  {
-    title: "Framer, Figma, ReactJS",
-    color: "bg-lime-300 text-zinc-900",
-  },
-];
-
-const projects = [
-  { title: "Majd", subtitle: "Free Portfolio Template", imageUrl: "/project-food-delivery.jpg" },
-  { title: "Damas", subtitle: "Free Framer Template", imageUrl: "/project-finance.png" },
-  { title: "NajmAI", subtitle: "SaaS Framer Template", imageUrl: "/project-wallpaper.png" },
-];
-
-const stats = [
-  { value: "+12", label: "Years of experience" },
-  { value: "+46", label: "Projects completed" },
-  { value: "+20", label: "Worldwide clients" },
-];
+import { Link } from "react-router-dom";
+import { featuredProjectSlugs, highlights, profile, projectsData, stats } from "@/data/portfolio";
 
 const Projects = () => {
   return (
@@ -33,7 +12,7 @@ const Projects = () => {
           <span className="section-title-muted">ENGINEER</span>
         </h1>
         <p className="mt-6 max-w-xl text-zinc-400">
-          Passionate about creating intuitive and engaging user experiences. I transform ideas into beautifully crafted products.
+          {profile.intro}
         </p>
       </div>
 
@@ -65,26 +44,31 @@ const Projects = () => {
       </div>
 
       <div className="space-y-3">
-        {projects.map((project, index) => (
-          <motion.a
-            key={project.title}
-            href="#"
+        {featuredProjectSlugs.map((slug, index) => {
+          const project = projectsData[slug];
+          return (
+          <motion.div
+            key={slug}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.08 }}
-            className="panel-card flex items-center justify-between gap-4 p-3 transition hover:border-zinc-600"
           >
-            <div className="flex items-center gap-4">
-              <img src={project.imageUrl} alt={project.title} className="h-16 w-20 rounded-md object-cover" />
-              <div>
-                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                <p className="text-sm text-zinc-500">{project.subtitle}</p>
+            <Link
+              to={`/project/${slug}`}
+              className="panel-card flex items-center justify-between gap-4 p-3 transition hover:border-zinc-600"
+            >
+              <div className="flex items-center gap-4">
+                <img src={project.coverImage} alt={project.name} className="h-16 w-20 rounded-md object-cover" />
+                <div>
+                  <h3 className="text-xl font-semibold text-white">{project.name}</h3>
+                  <p className="text-sm text-zinc-500">{project.tagline}</p>
+                </div>
               </div>
-            </div>
-            <ArrowUpRight className="h-5 w-5 text-orange-400" />
-          </motion.a>
-        ))}
+              <ArrowUpRight className="h-5 w-5 text-orange-400" />
+            </Link>
+          </motion.div>
+        )})}
       </div>
     </section>
   );

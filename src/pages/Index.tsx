@@ -7,6 +7,7 @@ import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import { updatePageTitle, logPageView } from "@/utils/seo";
+import { profile } from "@/data/portfolio";
 
 const Index = () => {
   useEffect(() => {
@@ -35,7 +36,7 @@ const Index = () => {
       </main>
 
       <footer className="border-t border-zinc-900 py-8 text-center text-sm text-zinc-500">
-        © {new Date().getFullYear()} Muhammad Moaiz · Built with React + Tailwind
+        © {new Date().getFullYear()} {profile.name} · Built with React + Tailwind
       </footer>
     </div>
   );

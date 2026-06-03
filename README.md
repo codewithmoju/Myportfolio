@@ -4,6 +4,19 @@
 
 **URL**: https://lovable.dev/projects/defe7b30-c6ba-4550-9f3d-a6a37f6ef06d
 
+## Update your personal data
+
+All profile content now comes from one file:
+
+- `src/data/portfolio.ts`
+
+Edit this file to update:
+
+- Name, role, bio, email, social links
+- Home stats and highlight cards
+- Experience and thoughts sections
+- Featured project cards and full project detail content
+
 ## How can I edit this code?
 
 There are several ways of editing your application.

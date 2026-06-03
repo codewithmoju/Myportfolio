@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "@/components/ui/use-toast";
+import { profile } from "@/data/portfolio";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ const Contact = () => {
       const body = `Name: ${formData.name}\nEmail: ${formData.email}\nBudget: ${formData.budget}\n\nMessage:\n${formData.message}`;
 
       window.open(
-        `mailto:muhammadmoaimrmr786@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
       );
 
       toast({
@@ -40,7 +41,7 @@ const Contact = () => {
     } catch {
       toast({
         title: "Unable to open mail app",
-        description: "Please email me directly at muhammadmoaimrmr786@gmail.com",
+        description: `Please email me directly at ${profile.email}`,
         variant: "destructive",
       });
     } finally {

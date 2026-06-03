@@ -1,26 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-
-const experienceItems = [
-  {
-    company: "PixelForge Studios",
-    summary:
-      "Led the design system in creating user-centric mobile and web applications, improving conversion and user engagement.",
-    period: "Jan 2020 - Present",
-  },
-  {
-    company: "BlueWave Innovators",
-    summary:
-      "Developed and implemented product design strategies for new features while collaborating closely with engineering and product teams.",
-    period: "Jun 2017 - Dec 2019",
-  },
-  {
-    company: "TrendCraft Solutions",
-    summary:
-      "Designed user interfaces for e-commerce platforms, focusing on usability and clean visual hierarchy.",
-    period: "Mar 2015 - May 2017",
-  },
-];
+import { experienceItems } from "@/data/portfolio";
 
 const Experience = () => {
   return (
