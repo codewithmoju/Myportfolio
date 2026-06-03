@@ -1,7 +1,9 @@
 
+import { profile } from "@/data/portfolio";
+
 // Simple utility to update document title dynamically
 export const updatePageTitle = (title: string): void => {
-  document.title = `${title} | Muhammad Moaiz - React Native Developer`;
+  document.title = `${title} | ${profile.name} - ${profile.role}`;
 };
 
 // Track custom events for Google Analytics
