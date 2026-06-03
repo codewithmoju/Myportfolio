@@ -1,80 +1,93 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, FileText } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+
+const highlights = [
+  {
+    title: "Dynamic animation, motion design",
+    color: "bg-orange-500 text-white",
+  },
+  {
+    title: "Framer, Figma, ReactJS",
+    color: "bg-lime-300 text-zinc-900",
+  },
+];
+
+const projects = [
+  { title: "Majd", subtitle: "Free Portfolio Template", imageUrl: "/project-food-delivery.jpg" },
+  { title: "Damas", subtitle: "Free Framer Template", imageUrl: "/project-finance.png" },
+  { title: "NajmAI", subtitle: "SaaS Framer Template", imageUrl: "/project-wallpaper.png" },
+];
+
+const stats = [
+  { value: "+12", label: "Years of experience" },
+  { value: "+46", label: "Projects completed" },
+  { value: "+20", label: "Worldwide clients" },
+];
+
 const Projects = () => {
-  const projects = [{
-    title: "Food Delivery App",
-    description: "A cross-platform React Native app with Firebase Authentication",
-    technologies: ["React Native", "Firebase", "Redux", "Animation"],
-    imageUrl: "/project-food-delivery.jpg",
-  }, {
-    title: "Personal Finance Tracker",
-    description: "A finance management app for transaction tracking",
-    technologies: ["React Native", "Firebase", "Charts", "Context API"],
-    imageUrl: "/project-finance.png",
-  }, {
-    title: "Wallpaper App",
-    description: "Browse and download high-quality wallpapers",
-    technologies: ["React Native", "API Integration", "UI/UX", "Redux"],
-    imageUrl: "/project-wallpaper.png",
-  }, {
-    title: "Weather Forecasting App",
-    description: "Real-time weather updates and forecasts",
-    technologies: ["React Native", "API Integration", "Animations", "Geolocation"],
-    imageUrl: "/project-weather.jpeg",
-  }];
-  return <section id="projects" className="py-20 gradient-bg">
-      <div className="container mx-auto px-4">
-        <motion.h2 initial={{
-        opacity: 0
-      }} whileInView={{
-        opacity: 1
-      }} className="text-3xl font-bold mb-4 text-center gradient-text font-display">
-          Projects
-        </motion.h2>
-        <motion.p initial={{
-        opacity: 0
-      }} whileInView={{
-        opacity: 1
-      }} className="text-gray-300 text-center max-w-2xl mx-auto mb-12">
-          Here are some of my recent projects showcasing my skills and experience as a React Native developer.
-        </motion.p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => <motion.div key={project.title} initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} transition={{
-          delay: index * 0.1
-        }} className="bg-theme-dark-surface rounded-lg shadow-lg overflow-hidden group transition-all duration-300">
-              {/* Project Image */}
-              <div className="relative h-56 overflow-hidden">
-                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
-              </div>
-              
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 font-display">{project.title}</h3>
-                <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
-                
-                {/* Technologies */}
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map(tech => <span key={tech} className="px-3 py-1 bg-theme-accent1 bg-opacity-20 text-theme-accent1 rounded-full text-xs font-medium">
-                        {tech}
-                      </span>)}
-                  </div>
-                </div>
-                
-                  
-                  
-                  
-                </div>
-              </div>
-            </motion.div>)}
-        </div>
+  return (
+    <section id="projects" className="space-y-10">
+      <div>
+        <h1 className="section-title text-white">
+          SOFTWARE
+          <span className="section-title-muted">ENGINEER</span>
+        </h1>
+        <p className="mt-6 max-w-xl text-zinc-400">
+          Passionate about creating intuitive and engaging user experiences. I transform ideas into beautifully crafted products.
+        </p>
       </div>
-    </section>;
+
+      <div className="grid gap-4 sm:grid-cols-3">
+        {stats.map((stat) => (
+          <div key={stat.label}>
+            <p className="text-5xl font-black text-white">{stat.value}</p>
+            <p className="mt-1 text-xs uppercase tracking-wider text-zinc-500">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {highlights.map((item, index) => (
+          <motion.article
+            key={item.title}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.08 }}
+            className={`rounded-2xl p-6 ${item.color}`}
+          >
+            <div className="flex items-start justify-between gap-3">
+              <p className="max-w-52 text-lg font-semibold uppercase leading-tight">{item.title}</p>
+              <ArrowUpRight className="h-5 w-5" />
+            </div>
+          </motion.article>
+        ))}
+      </div>
+
+      <div className="space-y-3">
+        {projects.map((project, index) => (
+          <motion.a
+            key={project.title}
+            href="#"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.08 }}
+            className="panel-card flex items-center justify-between gap-4 p-3 transition hover:border-zinc-600"
+          >
+            <div className="flex items-center gap-4">
+              <img src={project.imageUrl} alt={project.title} className="h-16 w-20 rounded-md object-cover" />
+              <div>
+                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                <p className="text-sm text-zinc-500">{project.subtitle}</p>
+              </div>
+            </div>
+            <ArrowUpRight className="h-5 w-5 text-orange-400" />
+          </motion.a>
+        ))}
+      </div>
+    </section>
+  );
 };
+
 export default Projects;
