@@ -97,7 +97,7 @@ export const profile: ProfileData = {
   role: "Full-Stack Mobile Dev",
   tagline: "React Native + Next.js · Co-Founder @NAMS STUDIO · Building Apps Since Age 16",
   intro:
-    "I shipped my first freelance React Native app at 16. I haven't stopped building since. Co-founder of NAMS Studio, CSE student at Minhaj University, and on a mission to make quality education free for everyone through RouteRadiant.",
+    "I shipped my first freelance React Native app at 16. I haven't stopped building since. Co-founder of NAMS Studio, BSSE student at Minhaj University, and on a mission to make quality education free for everyone through RouteRadiant.",
   imageUrl: "/Myprofile.jpg",
   email: "Muhammadmoaizmmr786@gmail.com",
   phone: "+92 301 9684007",
@@ -121,9 +121,9 @@ export const highlights: Highlight[] = [
     link: "https://routeradiant.com",
   },
   {
-    title: "NAMS Flow",
-    subtitle: "White-label SaaS comms platform · Meta API + WhatsApp + Stripe · Real users",
-    color: "bg-gradient-to-br from-orange-500 to-amber-600 text-white",
+    title: "PakFiler",
+    subtitle: "FBR tax filing made simple · React.js web app & mobile app via React Capacitor",
+    color: "bg-gradient-to-br from-teal-500 to-sky-600 text-white",
   },
 ];
 

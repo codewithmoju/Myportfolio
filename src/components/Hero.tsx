@@ -60,7 +60,7 @@ const Hero = () => {
 
         {/* Bio Text */}
         <p className="mt-5 text-center text-xs leading-relaxed text-zinc-400 font-medium px-1 max-w-[240px]">
-          I shipped my first React Native app at 16. I haven't stopped building since. CSE student at Minhaj University.
+          I shipped my first React Native app at 16. I haven't stopped building since. BSSE student at Minhaj University.
         </p>
 
         {/* Details list */}

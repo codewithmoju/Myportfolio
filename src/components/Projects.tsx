@@ -105,14 +105,22 @@ const Projects = () => {
         {highlights.map((item, index) => {
           const isRouteRadiant = item.title.toLowerCase().includes("routeradiant");
           const glowColorClass = isRouteRadiant 
-            ? "hover:border-violet-500/30 hover:shadow-[0_0_30px_-5px_rgba(139,92,246,0.12)]" 
-            : "hover:border-orange-500/30 hover:shadow-[0_0_30px_-5px_rgba(249,115,22,0.12)]";
+            ? "hover:border-violet-500/30 hover:shadow-[0_0_35px_-5px_rgba(139,92,246,0.15)]" 
+            : "hover:border-teal-500/30 hover:shadow-[0_0_35px_-5px_rgba(20,184,166,0.15)]";
           const badgeColorClass = isRouteRadiant 
             ? "text-violet-400 bg-violet-500/10 border-violet-500/20" 
-            : "text-orange-400 bg-orange-500/10 border-orange-500/20";
+            : "text-teal-400 bg-teal-500/10 border-teal-500/20";
           const glowBgGrad = isRouteRadiant
-            ? "from-violet-500/5"
-            : "from-orange-500/5";
+            ? "from-violet-500/5 to-indigo-500/0"
+            : "from-teal-500/5 to-sky-500/0";
+            
+          const techPills = isRouteRadiant 
+            ? ["Next.js", "TypeScript", "Supabase", "AI/ML"] 
+            : ["React.js", "React Capacitor", "TypeScript", "Firebase"];
+
+          const featurePills = isRouteRadiant
+            ? ["Personalized learning paths adaptive engine", "100k+ lines TypeScript solo codebase", "Live & serving students in Pakistan"]
+            : ["Step-by-step tax declaration wizard", "Real-time FBR tax bracket calculations", "Cross-platform Web & Capacitor Mobile apps"];
 
           return (
             <motion.article
@@ -121,35 +129,63 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className={`relative overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950/60 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-300 ${glowColorClass}`}
+              className={`relative overflow-hidden rounded-3xl border border-zinc-900 bg-zinc-950/60 p-7 flex flex-col justify-between group cursor-pointer transition-all duration-500 ${glowColorClass}`}
               onClick={() => item.link && window.open(item.link, "_blank")}
             >
               {/* Card Ambient Glow background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${glowBgGrad} via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none`} />
-
-              <div className="relative flex items-start justify-between gap-3">
-                <div className="space-y-3">
-                  <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider border ${badgeColorClass}`}>
-                    Flagship Product
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-black text-white tracking-tight uppercase group-hover:text-orange-400 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-xs text-zinc-400 leading-relaxed max-w-sm">
-                      {item.subtitle}
-                    </p>
-                  </div>
-                </div>
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-              </div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${glowBgGrad} via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-750 pointer-events-none`} />
               
-              {item.link && (
-                <div className="mt-5 relative z-10 inline-flex items-center gap-1.5 self-start rounded-xl bg-zinc-900 border border-zinc-800/80 hover:border-zinc-700 px-3 py-1.5 text-[11px] font-bold text-zinc-300 hover:text-white transition-all">
-                  <ExternalLink className="h-3 w-3" />
-                  Live Product
+              {/* Animated corner light spark */}
+              <div className="absolute top-0 right-0 w-[80px] h-[80px] bg-gradient-to-bl from-white/5 to-transparent rounded-bl-full opacity-50 group-hover:scale-110 transition-transform duration-500 pointer-events-none" />
+
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[9px] font-extrabold tracking-widest uppercase border ${badgeColorClass}`}>
+                    Flagship Project
+                  </span>
+                  <ArrowUpRight className="h-5 w-5 text-zinc-650 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                 </div>
-              )}
+                
+                <div>
+                  <h3 className="text-2xl font-black text-white tracking-tight uppercase group-hover:text-orange-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-xs text-zinc-400 leading-relaxed max-w-sm">
+                    {item.subtitle}
+                  </p>
+                </div>
+
+                {/* Feature checklist */}
+                <div className="flex flex-col gap-2 pt-1">
+                  {featurePills.map((feature) => (
+                    <div key={feature} className="flex items-start gap-2.5 text-[11px] text-zinc-500 font-medium leading-snug">
+                      <span className={`h-1.5 w-1.5 rounded-full shrink-0 mt-1.5 ${isRouteRadiant ? 'bg-violet-500/60' : 'bg-teal-500/60'}`} />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bottom technology pills bar */}
+              <div className="mt-8 pt-4 border-t border-zinc-900/40 flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap gap-1.5">
+                  {techPills.map((tech) => (
+                    <span key={tech} className="text-[9px] font-bold text-zinc-400 bg-zinc-900/50 border border-zinc-900 rounded-md px-2 py-0.5 group-hover:border-zinc-800 transition-colors">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                {item.link ? (
+                  <div className="inline-flex items-center gap-1 text-[10px] font-extrabold text-orange-400 group-hover:underline">
+                    Live Link
+                  </div>
+                ) : (
+                  <span className="text-[9px] font-extrabold uppercase tracking-wider text-zinc-600">
+                    Production App
+                  </span>
+                )}
+              </div>
             </motion.article>
           );
         })}
