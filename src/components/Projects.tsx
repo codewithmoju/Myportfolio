@@ -54,71 +54,105 @@ const ProjectRow = ({ slug, index }: { slug: string; index: number }) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="space-y-14">
+    <section id="projects" className="space-y-16">
       {/* Hero Headline */}
-      <div>
-        <h1 className="section-title text-white">
-          PRODUCTS
-          <span className="section-title-muted"> I'VE BUILT</span>
+      <div className="space-y-4">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight uppercase">
+          Products
+          <span className="block mt-1 bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
+            I've Built
+          </span>
         </h1>
-        <p className="mt-6 max-w-xl text-zinc-400 leading-relaxed">
+        <p className="max-w-2xl text-zinc-400 text-sm sm:text-base leading-relaxed font-medium">
           {profile.intro}
         </p>
       </div>
 
       {/* Stats Row */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, i) => {
           const IconComponent = stat.icon ? iconMap[stat.icon] : null;
           return (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="panel-card p-5 text-center flex flex-col items-center justify-center"
+              transition={{ delay: i * 0.06 }}
+              className="relative overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950/40 p-6 flex flex-col items-center justify-center text-center group hover:border-zinc-800 transition-all duration-300"
             >
+              {/* Subtle Ambient Hover Glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none" />
+              
               {IconComponent && (
-                <div className="mb-2 text-orange-400">
-                  <IconComponent className="h-6 w-6" />
+                <div className="mb-3 text-orange-500 p-2 rounded-xl bg-orange-500/5 border border-orange-500/10 group-hover:scale-110 group-hover:bg-orange-500/10 transition-all duration-300">
+                  <IconComponent className="h-5 w-5" />
                 </div>
               )}
-              <p className="text-4xl font-black text-white">{stat.value}</p>
-              <p className="mt-1 text-xs uppercase tracking-wider text-zinc-500 leading-snug">{stat.label}</p>
+              <p className="text-3xl font-black text-white tracking-tight group-hover:text-orange-400 transition-colors duration-300">
+                {stat.value}
+              </p>
+              <p className="mt-2 text-[10px] uppercase font-bold tracking-widest text-zinc-500 leading-snug">
+                {stat.label}
+              </p>
             </motion.div>
           );
         })}
       </div>
 
       {/* Flagship Highlights */}
-      <div className="grid gap-4 sm:grid-cols-2">
-        {highlights.map((item, index) => (
-          <motion.article
-            key={item.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.08 }}
-            className={`rounded-2xl p-6 ${item.color} relative overflow-hidden group cursor-pointer`}
-            onClick={() => item.link && window.open(item.link, "_blank")}
-          >
-            <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300" />
-            <div className="relative flex items-start justify-between gap-3">
-              <div>
-                <p className="text-lg font-black uppercase leading-tight">{item.title}</p>
-                <p className="mt-2 text-xs text-white/70 leading-relaxed max-w-52">{item.subtitle}</p>
+      <div className="grid gap-5 sm:grid-cols-2">
+        {highlights.map((item, index) => {
+          const isRouteRadiant = item.title.toLowerCase().includes("routeradiant");
+          const glowColorClass = isRouteRadiant 
+            ? "hover:border-violet-500/30 hover:shadow-[0_0_30px_-5px_rgba(139,92,246,0.12)]" 
+            : "hover:border-orange-500/30 hover:shadow-[0_0_30px_-5px_rgba(249,115,22,0.12)]";
+          const badgeColorClass = isRouteRadiant 
+            ? "text-violet-400 bg-violet-500/10 border-violet-500/20" 
+            : "text-orange-400 bg-orange-500/10 border-orange-500/20";
+          const glowBgGrad = isRouteRadiant
+            ? "from-violet-500/5"
+            : "from-orange-500/5";
+
+          return (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className={`relative overflow-hidden rounded-2xl border border-zinc-900 bg-zinc-950/60 p-6 flex flex-col justify-between group cursor-pointer transition-all duration-300 ${glowColorClass}`}
+              onClick={() => item.link && window.open(item.link, "_blank")}
+            >
+              {/* Card Ambient Glow background */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${glowBgGrad} via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none`} />
+
+              <div className="relative flex items-start justify-between gap-3">
+                <div className="space-y-3">
+                  <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider border ${badgeColorClass}`}>
+                    Flagship Product
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-black text-white tracking-tight uppercase group-hover:text-orange-400 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-xs text-zinc-400 leading-relaxed max-w-sm">
+                      {item.subtitle}
+                    </p>
+                  </div>
+                </div>
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-zinc-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
               </div>
-              <ArrowUpRight className="h-5 w-5 shrink-0 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-            </div>
-            {item.link && (
-              <div className="mt-4 inline-flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-medium">
-                <ExternalLink className="h-3 w-3" />
-                Live Product
-              </div>
-            )}
-          </motion.article>
-        ))}
+              
+              {item.link && (
+                <div className="mt-5 relative z-10 inline-flex items-center gap-1.5 self-start rounded-xl bg-zinc-900 border border-zinc-800/80 hover:border-zinc-700 px-3 py-1.5 text-[11px] font-bold text-zinc-300 hover:text-white transition-all">
+                  <ExternalLink className="h-3 w-3" />
+                  Live Product
+                </div>
+              )}
+            </motion.article>
+          );
+        })}
       </div>
 
       {/* Web Projects */}
