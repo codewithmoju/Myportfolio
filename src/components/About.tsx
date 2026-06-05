@@ -402,11 +402,11 @@ const About = () => {
   return (
     <section id="about" className="relative space-y-12 overflow-hidden py-4">
       {/* Subtle Dot-Matrix Background Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff03_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(var(--grid-color)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
 
       {/* Title */}
       <div className="relative z-10">
-        <h2 className="section-title text-white">
+        <h2 className="section-title text-foreground">
           TECH
           <span className="section-title-muted"> STACK</span>
         </h2>
@@ -421,17 +421,17 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: catIndex * 0.08 }}
-            className="grid gap-6 md:grid-cols-[220px_1fr] items-start border-b border-zinc-900 pb-8 last:border-0 last:pb-0"
+            className="grid gap-6 md:grid-cols-[220px_1fr] items-start border-b border-border/60 pb-8 last:border-0 last:pb-0"
           >
             {/* Category Title on the Left */}
             <div className="md:sticky md:top-24 pt-1 space-y-2.5">
               <div className="flex items-center gap-2.5">
                 <span className={`w-2 h-2 rounded-full bg-current shrink-0 ${cat.color.split(" ")[0]}`} />
-                <h3 className="text-zinc-400 font-bold font-display tracking-[0.15em] text-sm md:text-base uppercase">
+                <h3 className="text-muted-foreground/90 font-bold font-display tracking-[0.15em] text-sm md:text-base uppercase">
                   {cat.category}
                 </h3>
               </div>
-              <span className="inline-flex items-center text-[10px] font-mono font-medium px-2 py-0.5 rounded border border-zinc-800 bg-zinc-950/40 text-zinc-500">
+              <span className="inline-flex items-center text-[10px] font-mono font-medium px-2 py-0.5 rounded border border-border bg-card/45 text-muted-foreground/60">
                 {cat.skills.length} {cat.skills.length === 1 ? "Tool" : "Tools"}
               </span>
             </div>
@@ -448,12 +448,12 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ delay: catIndex * 0.05 + skillIndex * 0.02 }}
                     whileHover={{ scale: 1.03, y: -2 }}
-                    className={`flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/20 backdrop-blur-md px-3.5 py-3 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] transition-all duration-300 ease-out group cursor-default ${style.border} ${style.glow} ${style.bg}`}
+                    className={`flex items-center gap-3 rounded-xl border border-border/80 bg-card/20 backdrop-blur-md px-3.5 py-3 shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)] transition-all duration-300 ease-out group cursor-default ${style.border} ${style.glow} ${style.bg}`}
                   >
                     <div className={`shrink-0 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:brightness-110 ${style.iconClass || ""}`}>
                       {skillIcons[skill] || defaultIcon}
                     </div>
-                    <span className={`text-xs sm:text-sm font-semibold text-zinc-400 transition-colors truncate ${style.text}`}>
+                    <span className={`text-xs sm:text-sm font-semibold text-muted-foreground transition-colors truncate ${style.text}`}>
                       {skill}
                     </span>
                   </motion.div>
@@ -469,17 +469,17 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="grid gap-6 md:grid-cols-[220px_1fr] items-start border-b border-zinc-900 pb-8 last:border-0"
+          className="grid gap-6 md:grid-cols-[220px_1fr] items-start border-b border-border/60 pb-8 last:border-0"
         >
           {/* Title on the Left */}
           <div className="md:sticky md:top-24 pt-1 space-y-2.5">
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-zinc-500 shrink-0" />
-              <h3 className="text-zinc-400 font-bold font-display tracking-[0.15em] text-sm md:text-base uppercase">
+              <h3 className="text-muted-foreground/90 font-bold font-display tracking-[0.15em] text-sm md:text-base uppercase">
                 Languages
               </h3>
             </div>
-            <span className="inline-flex items-center text-[10px] font-mono font-medium px-2 py-0.5 rounded border border-zinc-800 bg-zinc-950/40 text-zinc-500">
+            <span className="inline-flex items-center text-[10px] font-mono font-medium px-2 py-0.5 rounded border border-border bg-card/45 text-muted-foreground/60">
               2 Languages
             </span>
           </div>
@@ -489,22 +489,22 @@ const About = () => {
             {/* English */}
             <motion.div
               whileHover={{ scale: 1.03, y: -2 }}
-              className="flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/20 backdrop-blur-md px-4 py-3.5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] transition-all duration-300 ease-out group cursor-default hover:border-sky-500/40 hover:shadow-[0_0_20px_-3px_rgba(14,165,233,0.2)] hover:bg-sky-500/5"
+              className="flex items-center gap-3 rounded-xl border border-border/80 bg-card/20 backdrop-blur-md px-4 py-3.5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)] transition-all duration-300 ease-out group cursor-default hover:border-sky-500/40 hover:shadow-[0_0_20px_-3px_rgba(14,165,233,0.15)] hover:bg-sky-500/5"
             >
               <div>
-                <p className="text-sm font-bold text-zinc-400 group-hover:text-sky-400 transition-colors">English</p>
-                <p className="text-xs text-zinc-500 group-hover:text-sky-500/80 transition-colors">Professional</p>
+                <p className="text-sm font-bold text-muted-foreground group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors font-display">English</p>
+                <p className="text-xs text-muted-foreground/60 transition-colors">Professional</p>
               </div>
             </motion.div>
 
             {/* Urdu */}
             <motion.div
               whileHover={{ scale: 1.03, y: -2 }}
-              className="flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/20 backdrop-blur-md px-4 py-3.5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] transition-all duration-300 ease-out group cursor-default hover:border-amber-500/40 hover:shadow-[0_0_20px_-3px_rgba(245,158,11,0.2)] hover:bg-amber-500/5"
+              className="flex items-center gap-3 rounded-xl border border-border/80 bg-card/20 backdrop-blur-md px-4 py-3.5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)] transition-all duration-300 ease-out group cursor-default hover:border-[#bc6c25]/45 hover:shadow-[0_0_20px_-3px_rgba(188,108,37,0.15)] hover:bg-[#bc6c25]/5"
             >
               <div>
-                <p className="text-sm font-bold text-zinc-400 group-hover:text-amber-400 transition-colors">Urdu</p>
-                <p className="text-xs text-zinc-500 group-hover:text-amber-500/80 transition-colors">Native / Bilingual</p>
+                <p className="text-sm font-bold text-muted-foreground group-hover:text-[#bc6c25] dark:group-hover:text-[#dda15e] transition-colors font-display">Urdu</p>
+                <p className="text-xs text-muted-foreground/60 transition-colors font-mono">Native / Bilingual</p>
               </div>
             </motion.div>
           </div>

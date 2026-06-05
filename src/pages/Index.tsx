@@ -9,9 +9,11 @@ import Thoughts from "@/components/Thoughts";
 import Contact from "@/components/Contact";
 import { updatePageTitle, logPageView } from "@/utils/seo";
 import { profile } from "@/data/portfolio";
+import { useTheme } from "@/hooks/useTheme";
 
 const Index = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const { theme } = useTheme(); // Subscribes Index to theme changes to trigger re-renders
 
   useEffect(() => {
     updatePageTitle("Portfolio");
@@ -27,24 +29,38 @@ const Index = () => {
     };
   }, []);
 
+  const glow1 = theme === "dark" ? "0.025" : "0.012";
+  const glow2 = theme === "dark" ? "0.015" : "0.008";
+
   return (
-    <div className="min-h-screen bg-[#030303] text-zinc-100 relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden transition-colors duration-300">
       {/* Dynamic Ambient Background Canvas */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         {/* Breathing Spotlight Orbs */}
-        <div className="absolute top-[-5%] right-[-10%] w-[50vw] h-[50vw] max-w-[550px] max-h-[550px] rounded-full bg-orange-500/12 blur-[90px] animate-float-slow animate-pulse-slow" />
-        <div className="absolute bottom-[5%] left-[-15%] w-[55vw] h-[55vw] max-w-[600px] max-h-[600px] rounded-full bg-amber-600/10 blur-[100px] animate-float-slower animate-pulse-slow" />
-        <div className="absolute top-[35%] left-[25%] w-[35vw] h-[35vw] max-w-[400px] max-h-[400px] rounded-full bg-orange-600/6 blur-[80px] animate-float-slow" />
+        <div 
+          className="absolute top-[-5%] right-[-10%] w-[50vw] h-[50vw] max-w-[550px] max-h-[550px] rounded-full blur-[90px] animate-float-slow animate-pulse-slow transition-colors duration-500" 
+          style={{ backgroundColor: "var(--orb-orange)" }}
+        />
+        <div 
+          className="absolute bottom-[5%] left-[-15%] w-[55vw] h-[55vw] max-w-[600px] max-h-[600px] rounded-full blur-[100px] animate-float-slower animate-pulse-slow transition-colors duration-500" 
+          style={{ backgroundColor: "var(--orb-green)" }}
+        />
+        <div 
+          className="absolute top-[35%] left-[25%] w-[35vw] h-[35vw] max-w-[400px] max-h-[400px] rounded-full blur-[80px] animate-float-slow transition-colors duration-500" 
+          style={{ backgroundColor: "var(--orb-copper)" }}
+        />
 
         {/* Global Dot-Matrix Grid Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:24px_24px] opacity-100" />
+        <div 
+          className="absolute inset-0 bg-[radial-gradient(var(--grid-color)_1px,transparent_1px)] bg-[size:24px_24px] opacity-100 transition-all duration-500" 
+        />
       </div>
 
       {/* Dynamic Cursor Spotlight Torch */}
       <div
         className="pointer-events-none fixed inset-0 z-10 transition-opacity duration-300 opacity-100"
         style={{
-          background: `radial-gradient(700px circle at ${mousePos.x}px ${mousePos.y}px, rgba(249, 115, 22, 0.025), rgba(245, 158, 11, 0.015) 50%, transparent 80%)`,
+          background: `radial-gradient(700px circle at ${mousePos.x}px ${mousePos.y}px, rgba(249, 115, 22, ${glow1}), rgba(245, 158, 11, ${glow2}) 50%, transparent 80%)`,
         }}
       />
 
@@ -71,9 +87,9 @@ const Index = () => {
           </div>
         </main>
 
-        <footer className="border-t border-zinc-900/80 py-8 text-center text-sm text-zinc-650">
-          <p>© {new Date().getFullYear()} <span className="text-zinc-400 font-semibold">{profile.name}</span> · Built with React + Tailwind</p>
-          <p className="mt-1 text-xs text-zinc-700">
+        <footer className="border-t border-border/60 py-8 text-center text-sm text-muted-foreground transition-colors">
+          <p>© {new Date().getFullYear()} <span className="text-foreground font-semibold">{profile.name}</span> · Built with React + Tailwind</p>
+          <p className="mt-1 text-xs text-muted-foreground/80">
             Shipped first app at 16 · Still going ✦
           </p>
         </footer>

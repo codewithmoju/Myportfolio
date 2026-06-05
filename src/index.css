@@ -6,26 +6,58 @@
 
 @layer base {
   :root {
-    --background: 240 6% 5%;
-    --foreground: 0 0% 96%;
-    --card: 240 5% 9%;
-    --card-foreground: 0 0% 96%;
-    --popover: 240 5% 9%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 16 95% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 4% 18%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 240 4% 18%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 240 4% 18%;
-    --accent-foreground: 0 0% 96%;
+    --background: 52 94% 94%;      /* Cornsilk base: #fefae0 */
+    --foreground: 88 38% 15%;      /* Black Forest: #283618 */
+    --card: 52 50% 92%;
+    --card-foreground: 88 38% 15%;
+    --popover: 52 50% 92%;
+    --popover-foreground: 88 38% 15%;
+    --primary: 28 67% 44%;         /* Copperwood: #bc6c25 */
+    --primary-foreground: 52 94% 94%;
+    --secondary: 74 32% 32%;       /* Olive Leaf: #606c38 */
+    --secondary-foreground: 52 94% 94%;
+    --muted: 52 35% 88%;
+    --muted-foreground: 88 20% 35%;
+    --accent: 32 65% 62%;          /* Sunlit Clay: #dda15e */
+    --accent-foreground: 88 38% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 74 20% 80%;
+    --input: 74 20% 80%;
+    --ring: 28 67% 44%;
+    --radius: 0.75rem;
+
+    --grid-color: rgba(40, 54, 24, 0.07);
+    --orb-orange: rgba(221, 161, 94, 0.04);
+    --orb-green: rgba(96, 108, 56, 0.05);
+    --orb-copper: rgba(188, 108, 37, 0.03);
+  }
+
+  .dark {
+    --background: 88 40% 3%;       /* Deep Pine-Black: #070a05 */
+    --foreground: 52 94% 94%;      /* Cornsilk: #fefae0 */
+    --card: 88 38% 5%;             /* Deep Pine Forest transparent */
+    --card-foreground: 52 94% 94%;
+    --popover: 88 38% 5%;
+    --popover-foreground: 52 94% 94%;
+    --primary: 26 65% 44%;         /* Copperwood: #bc6c25 */
+    --primary-foreground: 52 94% 94%;
+    --secondary: 74 32% 32%;       /* Olive Leaf: #606c38 */
+    --secondary-foreground: 52 94% 94%;
+    --muted: 88 20% 8%;
+    --muted-foreground: 74 15% 65%;
+    --accent: 32 65% 62%;          /* Sunlit Clay: #dda15e */
+    --accent-foreground: 52 94% 94%;
     --destructive: 0 63% 45%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 4% 18%;
-    --input: 240 4% 18%;
-    --ring: 16 95% 60%;
-    --radius: 0.75rem;
+    --border: 88 30% 10%;
+    --input: 88 30% 10%;
+    --ring: 32 65% 62%;
+
+    --grid-color: rgba(254, 250, 224, 0.08);
+    --orb-orange: rgba(221, 161, 94, 0.12);
+    --orb-green: rgba(96, 108, 56, 0.15);
+    --orb-copper: rgba(188, 108, 37, 0.08);
   }
 
   * {
@@ -37,7 +69,7 @@
   }
 
   body {
-    @apply bg-[#08080a] text-foreground antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
