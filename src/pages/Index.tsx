@@ -38,22 +38,45 @@ const Index = () => {
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
         {/* Breathing Spotlight Orbs */}
         <div 
-          className="absolute top-[-5%] right-[-10%] w-[50vw] h-[50vw] max-w-[550px] max-h-[550px] rounded-full blur-[90px] animate-float-slow animate-pulse-slow transition-colors duration-500" 
+          className="absolute top-[-5%] right-[-10%] w-[50vw] h-[50vw] max-w-[550px] max-h-[550px] rounded-full blur-[110px] animate-float-slow animate-pulse-slow transition-colors duration-500" 
           style={{ backgroundColor: "var(--orb-orange)" }}
         />
         <div 
-          className="absolute bottom-[5%] left-[-15%] w-[55vw] h-[55vw] max-w-[600px] max-h-[600px] rounded-full blur-[100px] animate-float-slower animate-pulse-slow transition-colors duration-500" 
+          className="absolute bottom-[5%] left-[-15%] w-[55vw] h-[55vw] max-w-[600px] max-h-[600px] rounded-full blur-[120px] animate-float-slower animate-pulse-slow transition-colors duration-500" 
           style={{ backgroundColor: "var(--orb-green)" }}
         />
         <div 
-          className="absolute top-[35%] left-[25%] w-[35vw] h-[35vw] max-w-[400px] max-h-[400px] rounded-full blur-[80px] animate-float-slow transition-colors duration-500" 
+          className="absolute top-[35%] left-[25%] w-[35vw] h-[35vw] max-w-[400px] max-h-[400px] rounded-full blur-[90px] animate-float-slow transition-colors duration-500" 
           style={{ backgroundColor: "var(--orb-copper)" }}
+        />
+        <div 
+          className="absolute bottom-[25%] right-[-5%] w-[45vw] h-[45vw] max-w-[480px] max-h-[480px] rounded-full blur-[100px] animate-float-slow transition-colors duration-500" 
+          style={{ backgroundColor: "var(--orb-orange)", animationDelay: "-5s" }}
         />
 
         {/* Global Dot-Matrix Grid Overlay */}
         <div 
           className="absolute inset-0 bg-[radial-gradient(var(--grid-color)_1px,transparent_1px)] bg-[size:24px_24px] opacity-100 transition-all duration-500" 
         />
+
+        {/* Animated Topographic Contour Waves */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.06] dark:opacity-[0.03] transition-opacity duration-500" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="currentColor" strokeWidth="1.2" fill="none" className="text-[#bc6c25] dark:text-[#dda15e] animate-pulse-slow">
+            <ellipse cx="20%" cy="30%" rx="180" ry="120" transform="rotate(-15 200 200)" />
+            <ellipse cx="20%" cy="30%" rx="260" ry="170" transform="rotate(-15 200 200)" />
+            <ellipse cx="20%" cy="30%" rx="340" ry="220" transform="rotate(-15 200 200)" />
+            <ellipse cx="20%" cy="30%" rx="420" ry="270" transform="rotate(-15 200 200)" />
+          </g>
+          <g stroke="currentColor" strokeWidth="1.2" fill="none" className="text-[#606c38] dark:text-[#606c38]/75 animate-pulse-slow" style={{ animationDelay: "3s" }}>
+            <ellipse cx="80%" cy="75%" rx="200" ry="130" transform="rotate(25 800 600)" />
+            <ellipse cx="80%" cy="75%" rx="280" ry="190" transform="rotate(25 800 600)" />
+            <ellipse cx="80%" cy="75%" rx="370" ry="250" transform="rotate(25 800 600)" />
+            <ellipse cx="80%" cy="75%" rx="470" ry="310" transform="rotate(25 800 600)" />
+          </g>
+        </svg>
+
+        {/* Grain/Noise Frosted Paper Overlay */}
+        <div className="absolute inset-0 bg-grain pointer-events-none" />
       </div>
 
       {/* Dynamic Cursor Spotlight Torch */}
