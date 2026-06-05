@@ -61,8 +61,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+        display: ["Outfit", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
