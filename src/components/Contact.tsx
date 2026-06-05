@@ -73,7 +73,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           onSubmit={handleSubmit}
-          className="panel-card space-y-4 p-6 md:p-8 border-border/80 bg-card/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)]"
+          className="panel-card space-y-4 p-6 md:p-8 border-border/80 bg-card/75 dark:bg-card/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)]"
         >
           <div className="flex items-center gap-2.5 pb-2 border-b border-border/60 mb-2">
             <MessageSquare className="h-5 w-5 text-[#bc6c25] dark:text-[#dda15e]" />
@@ -88,7 +88,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               placeholder="Your Name"
-              className="w-full rounded-xl border border-border bg-card/30 px-4 py-3.5 text-sm text-foreground outline-none transition-all duration-300 focus:border-[#bc6c25]/50 dark:focus:border-[#dda15e]/50 focus:bg-card/50 focus:shadow-[0_0_15px_-3px_rgba(188,108,37,0.12)] placeholder:text-muted-foreground/60"
+              className="w-full rounded-xl border border-border bg-card/50 dark:bg-card/30 px-4 py-3.5 text-sm text-foreground outline-none transition-all duration-300 focus:border-[#bc6c25]/50 dark:focus:border-[#dda15e]/50 focus:bg-card/70 focus:shadow-[0_0_15px_-3px_rgba(188,108,37,0.12)] placeholder:text-muted-foreground/60"
             />
             <input
               type="email"
@@ -97,7 +97,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               placeholder="Your Email"
-              className="w-full rounded-xl border border-border bg-card/30 px-4 py-3.5 text-sm text-foreground outline-none transition-all duration-300 focus:border-[#bc6c25]/50 dark:focus:border-[#dda15e]/50 focus:bg-card/50 focus:shadow-[0_0_15px_-3px_rgba(188,108,37,0.12)] placeholder:text-muted-foreground/60"
+              className="w-full rounded-xl border border-border bg-card/50 dark:bg-card/30 px-4 py-3.5 text-sm text-foreground outline-none transition-all duration-300 focus:border-[#bc6c25]/50 dark:focus:border-[#dda15e]/50 focus:bg-card/70 focus:shadow-[0_0_15px_-3px_rgba(188,108,37,0.12)] placeholder:text-muted-foreground/60"
             />
           </div>
 
@@ -108,7 +108,7 @@ const Contact = () => {
             required
             rows={5}
             placeholder="Tell me about your project target and requirements..."
-            className="w-full rounded-xl border border-border bg-card/30 px-4 py-3.5 text-sm text-foreground outline-none transition-all duration-300 focus:border-[#bc6c25]/50 dark:focus:border-[#dda15e]/50 focus:bg-card/50 focus:shadow-[0_0_15px_-3px_rgba(188,108,37,0.12)] placeholder:text-muted-foreground/60 resize-none"
+            className="w-full rounded-xl border border-border bg-card/50 dark:bg-card/30 px-4 py-3.5 text-sm text-foreground outline-none transition-all duration-300 focus:border-[#bc6c25]/50 dark:focus:border-[#dda15e]/50 focus:bg-card/70 focus:shadow-[0_0_15px_-3px_rgba(188,108,37,0.12)] placeholder:text-muted-foreground/60 resize-none"
           />
 
           <button

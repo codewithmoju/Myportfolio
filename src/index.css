@@ -84,15 +84,15 @@
   }
 
   .section-title-muted {
-    @apply text-zinc-600 font-normal;
+    @apply text-muted-foreground/60 font-normal;
   }
 
   .panel-card {
-    @apply rounded-2xl border border-zinc-800 bg-zinc-950/80;
+    @apply rounded-2xl border border-border/80 bg-card/60 backdrop-blur-md;
   }
 
   .tag {
-    @apply rounded-full border border-zinc-700 px-3 py-1 text-xs font-medium text-zinc-300;
+    @apply rounded-full border border-border/60 px-3 py-1 text-xs font-medium text-muted-foreground bg-card/40;
   }
 }
 
@@ -101,16 +101,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #111114;
+  background: hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2e2e33;
+  background: hsl(var(--muted-foreground) / 0.3);
   border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff5a00;
+  background: hsl(var(--primary));
 }
 
 @keyframes float-slow {

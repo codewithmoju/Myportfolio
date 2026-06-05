@@ -392,10 +392,10 @@ const brandStyles: Record<string, BrandStyle> = {
 };
 
 const defaultStyle: BrandStyle = {
-  border: "hover:border-zinc-700",
-  glow: "hover:shadow-[0_0_15px_-3px_rgba(255,255,255,0.08)]",
-  bg: "hover:bg-zinc-900/40",
-  text: "group-hover:text-white",
+  border: "hover:border-primary/40",
+  glow: "hover:shadow-[0_0_15px_-3px_rgba(188,108,37,0.15)]",
+  bg: "hover:bg-primary/5",
+  text: "group-hover:text-primary",
 };
 
 const About = () => {

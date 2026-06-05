@@ -48,7 +48,7 @@ const Thoughts = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className={`panel-card p-6 md:p-8 relative group overflow-hidden cursor-default transition-all duration-300 hover:scale-[1.01] hover:-translate-y-0.5 border-border/80 bg-card/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)] ${tagColors[featuredPost.tag]?.borderGlow || ""}`}
+            className={`panel-card p-6 md:p-8 relative group overflow-hidden cursor-default transition-all duration-300 hover:scale-[1.01] hover:-translate-y-0.5 border-border/80 bg-card/75 dark:bg-card/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)] ${tagColors[featuredPost.tag]?.borderGlow || ""}`}
           >
             {/* Ambient Background Spot Glow */}
             <div className="absolute -right-16 -top-16 w-32 h-32 bg-[#bc6c25]/5 blur-3xl rounded-full group-hover:bg-[#bc6c25]/10 transition-all duration-500 pointer-events-none" />
@@ -114,7 +114,7 @@ const Thoughts = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.3 }}
-                className={`panel-card p-6 relative group overflow-hidden cursor-default transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 border-border/80 bg-card/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)] flex flex-col justify-between ${colors.borderGlow}`}
+                className={`panel-card p-6 relative group overflow-hidden cursor-default transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 border-border/80 bg-card/75 dark:bg-card/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.01)] flex flex-col justify-between ${colors.borderGlow}`}
               >
                 {/* Ambient Spot Glow */}
                 <div className="absolute -right-12 -top-12 w-24 h-24 bg-current/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full pointer-events-none" />
