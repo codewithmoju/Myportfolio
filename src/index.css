@@ -48,11 +48,11 @@
 
 @layer utilities {
   .section-title {
-    @apply text-5xl font-black tracking-tight sm:text-6xl;
+    @apply text-3xl font-extrabold tracking-tight sm:text-4xl uppercase font-display;
   }
 
   .section-title-muted {
-    @apply mt-1 block text-zinc-700;
+    @apply text-zinc-600 font-normal;
   }
 
   .panel-card {
@@ -80,3 +80,54 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #ff5a00;
 }
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes float-slower {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1.08);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slower 28s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

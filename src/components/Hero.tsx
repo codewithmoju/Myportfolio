@@ -11,29 +11,32 @@ const Hero = () => {
       transition={{ duration: 0.6 }}
       className="relative group"
     >
-      {/* Background Glow */}
-      <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-b from-orange-500/15 via-transparent to-transparent blur-2xl opacity-75 pointer-events-none group-hover:from-orange-500/20 transition-all duration-500" />
+      {/* Background Glow behind the card */}
+      <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-b from-orange-500/15 via-transparent to-transparent blur-2xl opacity-75 pointer-events-none group-hover:from-orange-500/25 transition-all duration-500" />
 
-      <div className="relative overflow-hidden rounded-3xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-xl p-6 shadow-2xl flex flex-col items-center">
+      {/* Dynamic Glowing border overlay on hover */}
+      <div className="absolute -inset-[1px] rounded-[24px] bg-gradient-to-b from-orange-500/20 via-transparent to-amber-500/20 opacity-0 group-hover:opacity-100 blur-[1px] transition-all duration-500 pointer-events-none z-0" />
+
+      <div className="relative overflow-hidden rounded-3xl border border-zinc-900 bg-zinc-950/40 backdrop-blur-xl p-6 shadow-2xl flex flex-col items-center transition-all duration-500 hover:-translate-y-1 hover:border-zinc-800/80 hover:shadow-[0_15px_30px_-10px_rgba(249,115,22,0.15)] z-10">
         {/* Futuristic Dot Grid Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff03_1px,transparent_1px)] bg-[size:14px_14px] rounded-3xl pointer-events-none opacity-80" />
+        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:14px_14px] rounded-3xl pointer-events-none opacity-80" />
         
         {/* Soft Ambient Spotlight behind avatar */}
-        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-48 bg-gradient-to-br from-orange-500/10 to-indigo-500/5 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-48 bg-gradient-to-br from-orange-500/10 to-amber-500/5 rounded-full blur-[80px] pointer-events-none" />
 
         {/* Subtle Top Border Glow */}
         <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
 
         {/* Profile Image with Rotating Gradient Border */}
         <div className="relative mt-2">
-          {/* Animated Spin Ring */}
-          <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-orange-500 via-amber-400 to-indigo-500 animate-[spin_12s_linear_infinite] opacity-80 blur-[2px] shadow-lg shadow-orange-500/10" />
+          {/* Animated Spin Ring - glows and scales on card hover */}
+          <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-orange-500 via-amber-500 to-orange-600 animate-[spin_12s_linear_infinite] opacity-80 blur-[2px] shadow-lg shadow-orange-500/10 group-hover:opacity-100 group-hover:scale-105 group-hover:blur-[1px] transition-all duration-500" />
           
           <div className="relative h-32 w-32 rounded-full p-[3px] bg-[#0c0c0e] overflow-hidden shadow-inner flex items-center justify-center">
             <img
               src={profile.imageUrl}
               alt={profile.name}
-              className="h-full w-full rounded-full object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-500"
+              className="h-full w-full rounded-full object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-500"
             />
           </div>
           

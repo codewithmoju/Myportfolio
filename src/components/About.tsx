@@ -205,11 +205,207 @@ const defaultIcon = (
   </svg>
 );
 
+interface BrandStyle {
+  border: string;
+  glow: string;
+  bg: string;
+  text: string;
+  iconClass?: string;
+}
+
+const brandStyles: Record<string, BrandStyle> = {
+  // Frontend
+  HTML: {
+    border: "hover:border-[#E34F26]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(227,79,38,0.25)]",
+    bg: "hover:bg-[#E34F26]/5",
+    text: "group-hover:text-[#E34F26]",
+  },
+  CSS: {
+    border: "hover:border-[#1572B6]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(21,114,182,0.25)]",
+    bg: "hover:bg-[#1572B6]/5",
+    text: "group-hover:text-[#1572B6]",
+  },
+  JavaScript: {
+    border: "hover:border-[#F7DF1E]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(247,223,30,0.25)]",
+    bg: "hover:bg-[#F7DF1E]/5",
+    text: "group-hover:text-[#F7DF1E]",
+  },
+  TypeScript: {
+    border: "hover:border-[#3178C6]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(49,120,198,0.25)]",
+    bg: "hover:bg-[#3178C6]/5",
+    text: "group-hover:text-[#3178C6]",
+  },
+  "React JS": {
+    border: "hover:border-[#61DAFB]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(97,218,251,0.25)]",
+    bg: "hover:bg-[#61DAFB]/5",
+    text: "group-hover:text-[#61DAFB]",
+    iconClass: "group-hover:animate-[spin_10s_linear_infinite]",
+  },
+  "Next JS": {
+    border: "hover:border-zinc-400/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(255,255,255,0.15)]",
+    bg: "hover:bg-white/5",
+    text: "group-hover:text-white",
+  },
+  "Tailwind CSS": {
+    border: "hover:border-[#38B2AC]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(56,178,172,0.25)]",
+    bg: "hover:bg-[#38B2AC]/5",
+    text: "group-hover:text-[#38B2AC]",
+  },
+  Redux: {
+    border: "hover:border-[#764ABC]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(118,74,188,0.25)]",
+    bg: "hover:bg-[#764ABC]/5",
+    text: "group-hover:text-[#764ABC]",
+  },
+  // Mobile
+  "React Native": {
+    border: "hover:border-[#61DAFB]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(97,218,251,0.25)]",
+    bg: "hover:bg-[#61DAFB]/5",
+    text: "group-hover:text-[#61DAFB]",
+    iconClass: "group-hover:animate-[spin_10s_linear_infinite]",
+  },
+  Expo: {
+    border: "hover:border-zinc-400/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(255,255,255,0.15)]",
+    bg: "hover:bg-white/5",
+    text: "group-hover:text-white",
+  },
+  // Backend & Database
+  Supabase: {
+    border: "hover:border-[#3ECF8E]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(62,207,142,0.25)]",
+    bg: "hover:bg-[#3ECF8E]/5",
+    text: "group-hover:text-[#3ECF8E]",
+  },
+  Firebase: {
+    border: "hover:border-[#FFCA28]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(255,202,40,0.25)]",
+    bg: "hover:bg-[#FFCA28]/5",
+    text: "group-hover:text-[#FFCA28]",
+  },
+  PostgreSQL: {
+    border: "hover:border-[#4169E1]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(65,105,225,0.25)]",
+    bg: "hover:bg-[#4169E1]/5",
+    text: "group-hover:text-[#4169E1]",
+  },
+  // Development Tools
+  Git: {
+    border: "hover:border-[#F05032]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(240,80,50,0.25)]",
+    bg: "hover:bg-[#F05032]/5",
+    text: "group-hover:text-[#F05032]",
+  },
+  GitHub: {
+    border: "hover:border-zinc-400/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(255,255,255,0.15)]",
+    bg: "hover:bg-white/5",
+    text: "group-hover:text-white",
+  },
+  // AI & Agentic Tools
+  "Claude Code CLI & Web": {
+    border: "hover:border-[#D97756]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(217,119,86,0.25)]",
+    bg: "hover:bg-[#D97756]/5",
+    text: "group-hover:text-[#D97756]",
+  },
+  "Gemini CLI & Web": {
+    border: "hover:border-[#8B5CF6]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(139,92,246,0.25)]",
+    bg: "hover:bg-[#8B5CF6]/5",
+    text: "group-hover:text-[#a78bfa]",
+  },
+  "ChatGPT & Codex": {
+    border: "hover:border-[#10A37F]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(16,163,127,0.25)]",
+    bg: "hover:bg-[#10A37F]/5",
+    text: "group-hover:text-[#10A37F]",
+  },
+  DeepSeek: {
+    border: "hover:border-[#002FA7]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(0,47,167,0.25)]",
+    bg: "hover:bg-[#002FA7]/5",
+    text: "group-hover:text-[#38bdf8]",
+  },
+  Kimi: {
+    border: "hover:border-[#FF5A00]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(255,90,0,0.25)]",
+    bg: "hover:bg-[#FF5A00]/5",
+    text: "group-hover:text-[#FF5A00]",
+  },
+  Lovable: {
+    border: "hover:border-[#EC4899]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(236,72,153,0.25)]",
+    bg: "hover:bg-[#EC4899]/5",
+    text: "group-hover:text-[#EC4899]",
+  },
+  Bolt: {
+    border: "hover:border-[#FBBF24]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(251,191,36,0.25)]",
+    bg: "hover:bg-[#FBBF24]/5",
+    text: "group-hover:text-[#FBBF24]",
+  },
+  Windsurf: {
+    border: "hover:border-[#0EA5E9]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(14,165,233,0.25)]",
+    bg: "hover:bg-[#0EA5E9]/5",
+    text: "group-hover:text-[#0EA5E9]",
+  },
+  Trae: {
+    border: "hover:border-[#10B981]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(16,185,129,0.25)]",
+    bg: "hover:bg-[#10B981]/5",
+    text: "group-hover:text-[#10B981]",
+  },
+  Verdent: {
+    border: "hover:border-[#16A34A]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(22,163,74,0.25)]",
+    bg: "hover:bg-[#16A34A]/5",
+    text: "group-hover:text-[#16A34A]",
+  },
+  Wrap: {
+    border: "hover:border-[#EC4899]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(236,72,153,0.25)]",
+    bg: "hover:bg-[#EC4899]/5",
+    text: "group-hover:text-[#EC4899]",
+  },
+  Antigravity: {
+    border: "hover:border-[#0EA5E9]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(14,165,233,0.25)]",
+    bg: "hover:bg-[#0EA5E9]/5",
+    text: "group-hover:text-[#0EA5E9]",
+  },
+  "GitHub Copilot": {
+    border: "hover:border-[#6F42C1]/40",
+    glow: "hover:shadow-[0_0_20px_-3px_rgba(111,66,193,0.25)]",
+    bg: "hover:bg-[#6F42C1]/5",
+    text: "group-hover:text-[#a78bfa]",
+  },
+};
+
+const defaultStyle: BrandStyle = {
+  border: "hover:border-zinc-700",
+  glow: "hover:shadow-[0_0_15px_-3px_rgba(255,255,255,0.08)]",
+  bg: "hover:bg-zinc-900/40",
+  text: "group-hover:text-white",
+};
+
 const About = () => {
   return (
-    <section id="about" className="space-y-12">
+    <section id="about" className="relative space-y-12 overflow-hidden py-4">
+      {/* Subtle Dot-Matrix Background Grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff03_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
+
       {/* Title */}
-      <div>
+      <div className="relative z-10">
         <h2 className="section-title text-white">
           TECH
           <span className="section-title-muted"> STACK</span>
@@ -217,7 +413,7 @@ const About = () => {
       </div>
 
       {/* Main Categories Section */}
-      <div className="space-y-10">
+      <div className="relative z-10 space-y-10">
         {skillCategories.map((cat, catIndex) => (
           <motion.div
             key={cat.category}
@@ -225,35 +421,44 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: catIndex * 0.08 }}
-            className="grid gap-6 md:grid-cols-[200px_1fr] items-start border-b border-zinc-900 pb-8 last:border-0 last:pb-0"
+            className="grid gap-6 md:grid-cols-[220px_1fr] items-start border-b border-zinc-900 pb-8 last:border-0 last:pb-0"
           >
             {/* Category Title on the Left */}
-            <div className="md:sticky md:top-24 pt-1">
-              <h3 className="text-zinc-500 font-black tracking-widest text-lg md:text-xl uppercase">
-                {cat.category}
-              </h3>
+            <div className="md:sticky md:top-24 pt-1 space-y-2.5">
+              <div className="flex items-center gap-2.5">
+                <span className={`w-2 h-2 rounded-full bg-current shrink-0 ${cat.color.split(" ")[0]}`} />
+                <h3 className="text-zinc-400 font-bold font-display tracking-[0.15em] text-sm md:text-base uppercase">
+                  {cat.category}
+                </h3>
+              </div>
+              <span className="inline-flex items-center text-[10px] font-mono font-medium px-2 py-0.5 rounded border border-zinc-800 bg-zinc-950/40 text-zinc-500">
+                {cat.skills.length} {cat.skills.length === 1 ? "Tool" : "Tools"}
+              </span>
             </div>
 
             {/* Grid of Technologies on the Right */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {cat.skills.map((skill, skillIndex) => (
-                <motion.div
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: catIndex * 0.05 + skillIndex * 0.02 }}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  className="flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/40 px-3.5 py-3 hover:border-zinc-700 hover:bg-zinc-900/40 transition-all group cursor-default"
-                >
-                  <div className="shrink-0 flex items-center justify-center">
-                    {skillIcons[skill] || defaultIcon}
-                  </div>
-                  <span className="text-xs sm:text-sm font-semibold text-zinc-400 group-hover:text-white transition-colors truncate">
-                    {skill}
-                  </span>
-                </motion.div>
-              ))}
+              {cat.skills.map((skill, skillIndex) => {
+                const style = brandStyles[skill] || defaultStyle;
+                return (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: catIndex * 0.05 + skillIndex * 0.02 }}
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    className={`flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/20 backdrop-blur-md px-3.5 py-3 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] transition-all duration-300 ease-out group cursor-default ${style.border} ${style.glow} ${style.bg}`}
+                  >
+                    <div className={`shrink-0 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:brightness-110 ${style.iconClass || ""}`}>
+                      {skillIcons[skill] || defaultIcon}
+                    </div>
+                    <span className={`text-xs sm:text-sm font-semibold text-zinc-400 transition-colors truncate ${style.text}`}>
+                      {skill}
+                    </span>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         ))}
@@ -264,33 +469,42 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="grid gap-6 md:grid-cols-[200px_1fr] items-start border-b border-zinc-900 pb-8 last:border-0"
+          className="grid gap-6 md:grid-cols-[220px_1fr] items-start border-b border-zinc-900 pb-8 last:border-0"
         >
           {/* Title on the Left */}
-          <div className="pt-1">
-            <h3 className="text-zinc-500 font-black tracking-widest text-lg md:text-xl uppercase">
-              Languages
-            </h3>
+          <div className="md:sticky md:top-24 pt-1 space-y-2.5">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-zinc-500 shrink-0" />
+              <h3 className="text-zinc-400 font-bold font-display tracking-[0.15em] text-sm md:text-base uppercase">
+                Languages
+              </h3>
+            </div>
+            <span className="inline-flex items-center text-[10px] font-mono font-medium px-2 py-0.5 rounded border border-zinc-800 bg-zinc-950/40 text-zinc-500">
+              2 Languages
+            </span>
           </div>
 
           {/* Languages List on the Right */}
           <div className="flex flex-wrap gap-3">
+            {/* English */}
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950/40 px-4 py-3 hover:border-zinc-700 hover:bg-zinc-900/40 transition-all cursor-default"
+              whileHover={{ scale: 1.03, y: -2 }}
+              className="flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/20 backdrop-blur-md px-4 py-3.5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] transition-all duration-300 ease-out group cursor-default hover:border-sky-500/40 hover:shadow-[0_0_20px_-3px_rgba(14,165,233,0.2)] hover:bg-sky-500/5"
             >
               <div>
-                <p className="text-sm font-bold text-white">English</p>
-                <p className="text-xs text-zinc-500">Professional</p>
+                <p className="text-sm font-bold text-zinc-400 group-hover:text-sky-400 transition-colors">English</p>
+                <p className="text-xs text-zinc-500 group-hover:text-sky-500/80 transition-colors">Professional</p>
               </div>
             </motion.div>
+
+            {/* Urdu */}
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950/40 px-4 py-3 hover:border-zinc-700 hover:bg-zinc-900/40 transition-all cursor-default"
+              whileHover={{ scale: 1.03, y: -2 }}
+              className="flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-950/20 backdrop-blur-md px-4 py-3.5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)] transition-all duration-300 ease-out group cursor-default hover:border-amber-500/40 hover:shadow-[0_0_20px_-3px_rgba(245,158,11,0.2)] hover:bg-amber-500/5"
             >
               <div>
-                <p className="text-sm font-bold text-white">Urdu</p>
-                <p className="text-xs text-zinc-500">Native / Bilingual</p>
+                <p className="text-sm font-bold text-zinc-400 group-hover:text-amber-400 transition-colors">Urdu</p>
+                <p className="text-xs text-zinc-500 group-hover:text-amber-500/80 transition-colors">Native / Bilingual</p>
               </div>
             </motion.div>
           </div>
