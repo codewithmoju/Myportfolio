@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Code, Smartphone, Users, Award, Coffee, Clock } from "lucide-react";
+import { Code, Smartphone, Users, Award, Coffee, Clock, Star, Zap, Lightbulb } from "lucide-react";
 
 const Statistics = () => {
   const [counters, setCounters] = useState({
@@ -76,12 +76,7 @@ const Statistics = () => {
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 text-6xl">💻</div>
-        <div className="absolute top-20 right-20 text-4xl">📱</div>
-        <div className="absolute bottom-20 left-20 text-5xl">⚡</div>
-        <div className="absolute bottom-10 right-10 text-4xl">🚀</div>
-      </div>
+      <div className="absolute inset-0 opacity-5 pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -139,21 +134,24 @@ const Statistics = () => {
           className="mt-16 flex flex-wrap justify-center gap-4"
         >
           {[
-            { icon: "🏆", text: "Top Rated Developer" },
-            { icon: "⭐", text: "5-Star Reviews" },
-            { icon: "🚀", text: "Fast Delivery" },
-            { icon: "💡", text: "Innovation Award" }
-          ].map((badge, index) => (
-            <motion.div
-              key={badge.text}
-              className="flex items-center gap-2 bg-surface-dark px-4 py-2 rounded-full border border-gray-700"
-              whileHover={{ scale: 1.05, borderColor: "var(--brand-secondary)" }}
-              transition={{ duration: 0.2 }}
-            >
-              <span className="text-xl">{badge.icon}</span>
-              <span className="text-sm text-gray-300">{badge.text}</span>
-            </motion.div>
-          ))}
+            { Icon: Award, text: "Top Rated Developer" },
+            { Icon: Star, text: "5-Star Reviews" },
+            { Icon: Zap, text: "Fast Delivery" },
+            { Icon: Lightbulb, text: "Innovation Award" }
+          ].map((badge, index) => {
+            const BadgeIcon = badge.Icon;
+            return (
+              <motion.div
+                key={badge.text}
+                className="flex items-center gap-2 bg-surface-dark px-4 py-2 rounded-full border border-gray-700"
+                whileHover={{ scale: 1.05, borderColor: "var(--brand-secondary)" }}
+                transition={{ duration: 0.2 }}
+              >
+                <BadgeIcon className="w-4 h-4 text-orange-400" />
+                <span className="text-sm text-gray-300">{badge.text}</span>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

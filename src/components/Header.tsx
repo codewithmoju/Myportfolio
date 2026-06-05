@@ -1,9 +1,11 @@
-import { Home, UserRound, BriefcaseBusiness, PenSquare, Mail } from "lucide-react";
+import { Home, UserRound, BriefcaseBusiness, PenSquare, Mail, GraduationCap, Code2 } from "lucide-react";
 
 const navItems = [
   { href: "#home", icon: Home, label: "Home" },
   { href: "#projects", icon: BriefcaseBusiness, label: "Projects" },
   { href: "#experience", icon: UserRound, label: "Experience" },
+  { href: "#education", icon: GraduationCap, label: "Education" },
+  { href: "#about", icon: Code2, label: "Tech Stack" },
   { href: "#thoughts", icon: PenSquare, label: "Thoughts" },
   { href: "#contact", icon: Mail, label: "Contact" },
 ];

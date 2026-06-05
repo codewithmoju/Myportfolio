@@ -85,7 +85,17 @@ const ProjectDetail = () => {
                 {project.fullDescription}
               </p>
               <div className="flex gap-4">
-                <button className={`px-6 py-3 rounded-lg font-medium bg-gradient-to-r ${project.primaryColor} text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105`}>
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`px-6 py-3 rounded-lg font-medium bg-gradient-to-r ${project.primaryColor} text-white hover:shadow-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-2`}
+                  >
+                    View Live ↗
+                  </a>
+                )}
+                <button className={`px-6 py-3 rounded-lg font-medium ${project.liveUrl ? "border border-white/20 text-white hover:bg-white/10" : `bg-gradient-to-r ${project.primaryColor} text-white hover:shadow-lg`} transition-all duration-300 transform hover:scale-105`}>
                   Learn More
                 </button>
               </div>
